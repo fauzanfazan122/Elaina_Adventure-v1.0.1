@@ -1,8 +1,24 @@
 #include <iostream>
+#include <SFML/Graphics.hpp>
 
 int main() {
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Elaina Adventure");
 
-	std::cout << "hello world"; //Halo ini tes kedua
+    //Loop utama
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            switch (event.type) {
+                //Tutup
+            case sf::Event::Closed:
+                    window.close();
+                    break;
+            }
+        }
 
-	return 0;
+        window.clear();
+        window.display();
+    }
+
+    return 0;
 }
